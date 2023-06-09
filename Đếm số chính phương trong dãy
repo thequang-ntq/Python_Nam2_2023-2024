@@ -1,0 +1,14 @@
+import math
+cnt = 0
+n = int(input().strip())
+
+### Cách nhập mảng là dùng như dòng dưới (gán cho lambda)
+### Sau đó gán re chứa mảng dạng list của R
+### Tóm lại re là list chứa các phần tử là dãy số của mảng được nhập từ bàn phím, các phần tử cách nhau bởi dấu cách
+
+R = lambda:map(int,input().split())
+# print(R)
+re = list(R())
+for i in range(len(re)):
+    if math.sqrt(re[i]) == int(math.sqrt(re[i])): cnt += 1
+print(cnt)
