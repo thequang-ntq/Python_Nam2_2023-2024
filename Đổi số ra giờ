@@ -1,0 +1,11 @@
+### Cách định dạng đồng hồ chỉ thời gian trong python
+
+import math
+n = int(input().strip())
+h = n // 3600
+n = n - h * 3600
+m = n // 60
+n = n - m * 60
+s = n
+formatted_time = f"{h:02d}:{m:02d}:{s:02d}"
+print(formatted_time)
