@@ -1,0 +1,15 @@
+import math
+a = b = c = d = 0
+n = int(input().strip())
+R = lambda:map(int,input().split())
+
+re = list(R())
+for i in range(len(re)):
+    if re[i] < 0: a += 1
+    if re[i] > 0: b += 1
+    if re[i] % 2 == 0: c += 1
+    if re[i] %2 != 0: d += 1
+print(a)
+print(b)
+print(c)
+print(d)
