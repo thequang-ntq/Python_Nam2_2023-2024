@@ -1,0 +1,20 @@
+# import sys
+# sys.stdin = open('DSHP.csv', 'r')
+# sys.stdout = open('HocPhanTIN.out', 'w')
+import math
+a = []
+b = []
+m,n,p  = map(int,input().split())
+for i in range(m):
+    x = list(map(int,input().split()))
+    a.append(x)
+for i in range(n):
+    y = list(map(int,input().split()))
+    b.append(y)
+c = [[0 for i in range(p)] for j in range(m)]
+for i in range(m):
+    for j in range(p):
+        for k in range(n):
+            c[i][j] += (a[i][k] * b[k][j] )
+for i in range(m):
+    print(*c[i])
