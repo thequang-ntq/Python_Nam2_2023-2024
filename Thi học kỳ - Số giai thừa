@@ -1,0 +1,11 @@
+# import sys
+# sys.stdin = open('DSHP.csv', 'r')
+# sys.stdout = open('HocPhanTIN.out', 'w')
+import math
+n = int(input())
+res = 1
+i = 1
+while i<=n :
+    res = res * i
+    i= i+1
+print(len(str(res)))
