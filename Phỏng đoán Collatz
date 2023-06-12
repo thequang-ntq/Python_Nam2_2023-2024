@@ -1,0 +1,13 @@
+import math
+n = int(input())
+ls = []
+while n != 1:
+    if n % 2 == 0: 
+        tmp = n//2
+        if tmp not in ls: ls.append(tmp)
+        n = tmp
+    else:
+        tmp = n*3+1
+        if tmp not in ls: ls.append(tmp)
+        n = tmp
+print(len(ls)+1)
