@@ -1,0 +1,78 @@
+import sys 
+from abc import ABCMeta, abstractmethod
+
+try :
+    sys.stdin = open("input.inp", "r")
+except :
+    sys.stdin = sys.__stdin__
+
+class Shape :
+    def __init__(self, id, type):
+        self.id = id
+        self.type = type
+    
+    @abstractmethod
+    def area(self) :
+        pass
+
+class Circle(Shape) :
+    def __init__(self, id, type, r):
+        Shape.__init__(self, id, type)
+        self.r = r
+    
+    def area(self):
+        return 3.14 * self.r ** 2
+
+class Triangle(Shape) :
+    def __init__(self, id, type, a, b, c):
+        Shape.__init__(self, id, type)
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def area(self):
+        p = (self.a + self.b + self.c) / 2
+        return (p * (p - self.a) * (p - self.b) * (p - self.c)) ** (1 / 2)
+
+class Rectangle(Shape) :
+    def __init__(self, id, type, w, h):
+        Shape.__init__(self, id, type)
+        self.w = w
+        self.h = h 
+    
+    def area(self):
+        return self.w * self.h
+
+shapes = []
+for i in range(int(input())) :
+    params = input().split()
+    if (params[1] == "Rectangle") :
+        shapes.append(Rectangle(int(params[0]), params[1], float(params[2]), float(params[3])))
+    elif (params[1] == "Circle") :
+        shapes.append(Circle(int(params[0]), params[1], float(params[2])))
+    else :
+        shapes.append(Triangle(int(params[0]), params[1], float(params[2]), float(params[3]), float(params[4])))
+
+for q in range(int(input())) :
+    params = input().split()
+    if (params[0] == "displayArea") :
+        exist = False
+        for shape in shapes :
+            if (shape.id == int(params[1])) :
+                exist = True
+                print("{:.1f}".format(shape.area()))
+                break
+        if (exist == False) :
+            print("Not Found!")
+    elif (params[0] == "listAllCircle") :
+        for shape in shapes :
+            if (shape.type == "Circle") :
+                print("Circle {}".format(shape.r))
+    elif (params[0] == "listAllRectangle") :
+        for shape in shapes :
+            if (shape.type == "Rectangle") :
+                print("Rectangle {} {}".format(shape.w, shape.h))
+    else :
+        for shape in shapes :
+            if (shape.type == "Triangle") :
+                print("Triangle {} {} {}".format(shape.a, shape.b, shape.c))
