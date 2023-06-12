@@ -1,0 +1,9 @@
+### lặp while
+import math
+luong = 0
+while True:
+    n = int(input())
+    if n == -1: break
+    else:
+        luong += n 
+print(luong)
