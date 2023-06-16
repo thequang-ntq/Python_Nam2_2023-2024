@@ -1,0 +1,28 @@
+#__Quang__
+import math
+m,n,p = map(int,input().split())
+A = [[0 for j in range(n)] for i in range(m)]
+B = [[0 for j in range(p)] for i in range(n)]
+for i in range(m):
+    R = lambda:map(int,input().split())
+    rows = list(R())
+    for j in range(len(rows)):
+        A[i][j] = rows[j]
+
+for i in range(n):
+    R = lambda:map(int,input().split())
+    rows = list(R())
+    for j in range(len(rows)):
+        B[i][j] = rows[j]
+
+# print(A)
+# print("---")
+# print(B)
+
+C = [[0 for j in range(p)] for i in range(m)]
+for i in range(m):
+    for j in range(p):
+        for k in range(n):
+            C[i][j] += A[i][k] * B[k][j]
+for i in range(m):
+    print(*C[i])
