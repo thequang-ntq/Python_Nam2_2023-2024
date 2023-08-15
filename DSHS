@@ -1,0 +1,41 @@
+# Viết chương trình nhập vàomột danh sách gồm có n học sinh, 
+# mỗi học sinh gồm có thông tin mã học sinh, họtên, giới tính, lớp
+# a. Danh sách có bao nhiêu sốnam(M), bao nhiêu nữ(F).
+# b. Sắp xếp và in ra danh sách học sinh theo lớp, từnhỏđến lớn.
+''''
+input:
+5hs001;Nguyen Van Linh; M;10A1
+hs002;Nguyen Nhu Mai; F;11B1
+hs003;Tran Lan Anh; F;10A1
+hs004;Hoang Phi; M;11B2
+hs005;Le Bao Anh; M;10A1
+'''
+
+'''
+output:
+3 2hs001;Nguyen Van Linh; M;10A1
+hs003;Tran Lan Anh; F;10A1
+hs005;LeBao Anh; M;10A1
+hs002;Nguyen Nhu Mai; F;11B1
+hs004;HoangPhi; M;11B2
+'''
+n = int(input())
+students = []
+for i in range(n):
+  student = input()
+  students.append(student.split(";"))
+
+male_count = 0
+female_count = 0
+for student in students:
+  if student[2].strip() == "M":
+    male_count += 1
+  else:
+    female_count += 1
+
+print(f"{male_count} {female_count}")
+
+students.sort(key=lambda student: student[3])
+
+for student in students:
+  print("{};{};{};{}".format(student[0], student[1], student[2], student[3]))
