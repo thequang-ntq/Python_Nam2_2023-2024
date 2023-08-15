@@ -1,0 +1,19 @@
+try:
+    s = input()
+
+    ans = 0
+    i = 0
+    l = len(s)
+
+    while (i < l) :
+        ok = False
+        while (i < l and s[i].isdigit()):
+            i += 1
+            ok = True
+        if (ok == True):
+            ans += 1
+        i += 1
+
+    print(ans)
+except:
+    print(0)
