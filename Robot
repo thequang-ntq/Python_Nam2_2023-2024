@@ -1,0 +1,28 @@
+n, m, x, y = map(int, input().split())
+a = []
+for i in range(n):
+    a.append(list(map(int, input().split())))
+
+def inSide(i, j) -> bool:
+    return i >= 0 and i < n and j >= 0 and j < m
+ans = 0
+
+while True:
+    try:
+        s = str(input()).rstrip().lstrip()
+        s = s.upper()
+        if inSide(x, y):
+            ans += a[x][y]
+        if (s == "FINISH"):
+            break
+        elif (s == "RIGHT"):
+            y += 1
+        elif (s == "DOWN"):
+            x += 1
+        elif (s == "LEFT"):
+            y -= 1
+        elif (s == "UP"):
+            x -= 1
+    except:
+        break
+print(ans)
