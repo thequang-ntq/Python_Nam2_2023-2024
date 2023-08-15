@@ -1,19 +1,16 @@
+import math
+cnt = 0
+check = False
 try:
-    s = input()
-
-    ans = 0
-    i = 0
-    l = len(s)
-
-    while (i < l) :
-        ok = False
-        while (i < l and s[i].isdigit()):
-            i += 1
-            ok = True
-        if (ok == True):
-            ans += 1
-        i += 1
-
-    print(ans)
+  str = input().strip()
+  for chars in range(0, len(str)):
+    if str[chars].isdigit():
+      check = True
+    else:
+      if check==True:
+        check = False
+        cnt += 1
+  if check == True : cnt += 1
+  print(cnt)
 except:
-    print(0)
+  print(0)
