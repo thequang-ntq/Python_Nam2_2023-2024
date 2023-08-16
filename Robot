@@ -1,28 +1,21 @@
-n, m, x, y = map(int, input().split())
-a = []
-for i in range(n):
-    a.append(list(map(int, input().split())))
+m, n, x, y = map(int, input().split())
+lst = [list(map(int, input().split())) for i in range(m)]
 
-def inSide(i, j) -> bool:
-    return i >= 0 and i < n and j >= 0 and j < m
-ans = 0
+cnt = lst[x][y]
+
 
 while True:
-    try:
-        s = str(input()).rstrip().lstrip()
-        s = s.upper()
-        if inSide(x, y):
-            ans += a[x][y]
-        if (s == "FINISH"):
-            break
-        elif (s == "RIGHT"):
-            y += 1
-        elif (s == "DOWN"):
-            x += 1
-        elif (s == "LEFT"):
-            y -= 1
-        elif (s == "UP"):
-            x -= 1
-    except:
+    s = input().strip()
+    if s == "FINISH":
         break
-print(ans)
+    if s == "RIGHT":
+        y += 1
+    elif s == "LEFT":
+        y -= 1
+    elif s == "DOWN":
+        x += 1
+    else:
+        x -= 1
+    if x >= 0 and x < m and y >= 0 and y < n:
+        cnt += lst[x][y]
+print(cnt)
