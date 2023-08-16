@@ -1,21 +1,13 @@
-def sorting(stud):
-  return stud[-4:]
-
-n = int(input().strip())
-students = []
-male = 0
-female = 0
-for i in range(n):
-  student = input().strip()
-  for chars in range(0, len(student)-2):
-    if student[chars-1] == ';' and student[chars] == 'M' and student[chars+1] == ';':
-      male += 1
-      break
-    elif student[chars-1] == ';' and student[chars] == 'F' and student[chars+1] == ';':
-      female += 1
-      break
-  students.append(student)
-print(male, female, sep = ' ')
-students.sort(key=sorting)
-for i in range(len(students)):
-  print(students[i])
+n = int(input())
+lst = [list(map(str, input().split(";"))) for i in range(n)]
+cntM = 0
+cntF = 0
+for i in lst:
+    if i[2].strip() == "M":
+        cntM += 1
+    else:
+        cntF += 1
+print(cntM, cntF, sep = " ")
+lst.sort(key = lambda  i : i[3])
+for i in lst:
+    print(';'.join(i))
