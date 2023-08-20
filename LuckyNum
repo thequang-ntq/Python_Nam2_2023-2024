@@ -1,0 +1,12 @@
+s = str(input())
+dem1 = 0
+dem2 = 0
+for i in s:
+    if i == '4':
+        dem1+=1
+    if i == '7':
+        dem2+=1
+if dem1 == dem2 and (dem1 + dem2) == len(s):
+    print("True")
+else:
+    print("False")
