@@ -1,0 +1,18 @@
+import math
+n = int(input())
+ans = 0
+a = list(map(int, input().split()))
+
+ans = 0
+ok = True
+while ok == True:
+    for i in range(n):
+        if (a[i] % 2 != 0):
+            ok = False
+            break
+        else:
+            a[i] //= 2
+    if ok == False:
+        break
+    ans += 1
+print(ans)
