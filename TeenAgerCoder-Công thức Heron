@@ -1,0 +1,10 @@
+a,b,c=map(float,input().split())
+# kiem tra a,b,c 3 canh tam giac
+if a+b>c and a+c>b and b+c>a:
+    p=(a+b+c)/2
+    d=(p*(p-a)*(p-b)*(p-c))
+    import math
+    result=math.sqrt(d)
+    print("%0.4f" %result)
+else :
+    print("No Solution")
