@@ -1,0 +1,5 @@
+n,p=map(int,input().split())
+x=n//(4*p)
+if	x*4*p<n:
+    x=x+1
+print(x)
