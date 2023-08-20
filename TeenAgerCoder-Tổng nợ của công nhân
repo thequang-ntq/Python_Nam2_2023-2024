@@ -1,0 +1,11 @@
+def tong_no(mang):
+    sum=0
+    for i in mang:
+        if i<0:
+            sum=sum+i
+    return sum
+
+n=int(input())
+numbers = list(map(int, input().split()))
+kq=tong_no(numbers)
+print(kq)
