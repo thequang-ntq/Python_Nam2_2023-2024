@@ -1,0 +1,3 @@
+n = int(input())
+hex_string = hex(n)
+print(hex_string[2:].upper())
