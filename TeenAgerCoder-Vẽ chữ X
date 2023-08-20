@@ -1,0 +1,24 @@
+def tao_ma_matran(n):
+    matrix = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append('.')
+        matrix.append(row)
+    return matrix
+
+def ve_ma_tran(matrix):
+    for row in matrix:
+        print(' '.join(row))
+
+def ve_X(n):
+    size = 2 * n + 1
+    matrix = tao_ma_matran(size)
+    for i in range(size):
+        matrix[i][i] = '*'  # Sửa dấu '==' thành '=' để gán giá trị '*'
+        matrix[i][size - i - 1] = '*'  # Sửa dấu '==' thành '=' để gán giá trị '*'
+
+    ve_ma_tran(matrix)
+
+n = int(input())
+ve_X(n)
