@@ -1,0 +1,12 @@
+while True: # đọc dữ liệu nhiều dòng
+    try:
+        st = input()
+        # xử lý ở đây
+        c=0
+        pat= 'aAoOyYiIeEuU'
+        for ch in st:
+            if ch in pat:
+                c=c+1
+        print(c)
+    except:
+        break
