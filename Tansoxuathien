@@ -1,0 +1,7 @@
+lst = input().split()
+
+lst = [int(x) for x in lst]
+a = sorted(set(lst))
+for item in a:
+    count = lst.count(item)
+    print(count,end=" ")
