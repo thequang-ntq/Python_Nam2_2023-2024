@@ -1,0 +1,8 @@
+s = int(input())
+ans = 0
+mu = 0
+while s > 0:
+    ans += (s%10)*pow(2,mu)
+    mu += 1
+    s //= 10
+print(ans)
