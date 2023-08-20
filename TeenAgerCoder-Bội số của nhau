@@ -1,0 +1,6 @@
+m,n=map(int,input().split())
+#Kiem tra m,n la boi cua nhau
+if m%n==0 or n%m==0:
+    print('Yes')
+else:
+    print('No')
