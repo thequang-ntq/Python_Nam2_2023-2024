@@ -1,0 +1,13 @@
+n=int(input())
+hung=list(map(int,input().split()))
+cuong=list(map(int,input().split()))
+
+diem_hung=0
+diem_cuong=0
+for i in range(n):
+    if hung[i]>cuong[i]:
+        diem_hung+=1
+    elif hung[i]<cuong[i]:
+        diem_cuong+=1
+
+print(diem_hung,diem_cuong)
