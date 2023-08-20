@@ -1,0 +1,7 @@
+st1=str(input())
+st2=str(input())
+l1=len(st1)
+l2=len(st2)
+ans=st1+' '+st2
+print(l1,l2)
+print(ans)
