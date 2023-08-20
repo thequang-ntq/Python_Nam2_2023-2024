@@ -1,0 +1,36 @@
+import math
+row,col = map(int,input().split())
+a = []
+for _ in range(row):
+    R = lambda:map(int,input().split())
+    rows = list(R())
+    a.append(rows)
+
+lcol = []
+for i in range(col):
+    mx = a[0][i]
+    for j in range(row):
+        if mx < a[j][i]: mx = a[j][i]
+    lcol.append(mx)
+lrow = []
+for i in range(row):
+    mx = a[i][0]
+    for j in range(col):
+        if mx > a[i][j]: mx = a[i][j]
+    lrow.append(mx)
+left = []
+right =[]
+t = False
+for i in range(row):
+    for j in range(col):
+        if a[i][j] == lrow[i] and a[i][j] == lcol[j]:
+            left.append(i+1)
+            right.append(j+1)
+            t = True
+if(t == True):
+    print("Cac phan tu yen ngua la:")
+
+    n = len(left)
+    for i in range(n):
+        print(f"({left[i]},{right[i]})", end="; ", sep="")
+else: print("Khong co phan tu yen ngua")
