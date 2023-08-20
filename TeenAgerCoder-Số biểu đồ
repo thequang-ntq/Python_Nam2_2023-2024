@@ -1,0 +1,7 @@
+S = input()
+N = int(input())
+x = list(map(int, input().split()))
+
+for item in x:
+    kq = S * item
+    print(kq)
