@@ -1,0 +1,20 @@
+import math
+a=int(input())
+gio=0
+while(a>=3600):
+    gio+=1
+    a=a-3600
+gio=str(gio)
+if(len(gio)==1):
+    gio='0'+gio
+phut=0
+while(a>=60):
+    phut+=1
+    a=a-60
+phut=str(phut)
+if(len(phut)==1):
+    phut='0'+phut
+a=str(a)
+if(len(a)==1):
+    a+='0'
+print("{0}:{1}:{2}".format(gio,phut,a))
