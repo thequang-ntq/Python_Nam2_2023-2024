@@ -1,0 +1,9 @@
+st=input()
+l=len(st)
+i=0
+while(st[i]!='A'):
+    i=i+1
+j=l-1
+while(st[j]!='Z'):
+    j=j-1
+print(j-i+1)
