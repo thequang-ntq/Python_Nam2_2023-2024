@@ -1,0 +1,19 @@
+def so_lon_nhat(arr):
+    max_value = arr[0]
+    for i in arr:
+        if i > max_value:  
+            max_value = i
+    return max_value
+
+def tong_cac_so(arr):
+    sum=0
+    max=so_lon_nhat(arr)
+    for i in arr:
+        if i!=max:
+            sum=sum+i
+    return sum
+
+n=int(input())
+arr = list(map(int, input().split()))
+kq=tong_cac_so(arr)
+print(kq)
