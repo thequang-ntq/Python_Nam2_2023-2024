@@ -1,0 +1,9 @@
+n = int(input())
+
+count = 0
+arr = [0, 3, 6, 9, 11, 14, 17]
+a = map(int, input().split())
+for i in a:
+    if i % 19 in arr:
+        count += 1
+print(count)
