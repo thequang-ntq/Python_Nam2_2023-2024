@@ -1,0 +1,13 @@
+def namnhuan(n):
+    if(n%400==0 or n%4==0 and n%100!=0):
+        return True
+    else:
+        return False
+T = int(input())
+if(T<=10):
+    for i in range(T):
+        m = int(input())
+        if(namnhuan(m)):
+            print('leap year')
+        else:
+            print('none')
