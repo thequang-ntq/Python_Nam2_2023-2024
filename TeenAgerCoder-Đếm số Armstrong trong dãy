@@ -1,0 +1,15 @@
+import math
+def CheckArmstrong(str):
+    sum = 0
+    size = len(str)
+    for i in str:
+        z = int(i)
+        sum += math.pow(z,size)
+    return sum   
+n = int(input())
+A = map(str,input().split())
+ans = 0
+for i in A:
+    if(int(CheckArmstrong(i)) == int(i)):
+        ans += 1
+print(ans)
