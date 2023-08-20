@@ -1,0 +1,6 @@
+import math
+s=input()
+if(len(set(s))) == len(s):
+    print("Yes")
+else:
+    print("No")
