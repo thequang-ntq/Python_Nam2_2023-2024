@@ -1,0 +1,15 @@
+import math
+def xau(s):
+    return s == s[::-1]
+def wrong(s):
+    ans = 0
+    for i in range(len(s) // 2):
+        if s[i] != s[len(s) - 1 - i]:
+            ans += 1
+    return ans
+s = input().strip()
+if xau(s):
+    print(0)
+else:
+    ans = wrong(s)
+    print(ans)
