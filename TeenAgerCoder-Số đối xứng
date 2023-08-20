@@ -1,0 +1,14 @@
+def dao_nguoc(n):              
+    sum=0
+    while n!=0:
+        num=n%10
+        sum=sum*10+num
+        n=n//10
+    return sum
+
+n=int(input())
+kq=dao_nguoc(n)
+if kq==n:
+    print("Yes")
+else:
+    print("No")
