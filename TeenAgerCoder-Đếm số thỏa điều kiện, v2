@@ -1,0 +1,8 @@
+n = int(input())
+ar = list(map(int, input().split()))
+
+ans = 0
+for i in ar:
+    if (i % 2 == 0 or ((i % 3 == 0 or i % 5 == 0) and (100 <= i and i <= 999))):
+        ans += 1
+print (ans)
