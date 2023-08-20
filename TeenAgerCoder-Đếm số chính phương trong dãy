@@ -1,0 +1,13 @@
+import math
+def square (n):
+    x = int(math.sqrt(n))
+    if x**2 == n:
+        return True
+    return False
+n = int(input())
+m = map (int, input().split())
+s = 0
+for i in m:
+    if square(i) == True:
+        s+=1
+print(s)
