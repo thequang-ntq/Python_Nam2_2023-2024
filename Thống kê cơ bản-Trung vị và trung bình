@@ -1,0 +1,28 @@
+def nhap_mang(n):
+    arr = []
+    for _ in range(n):
+        value = int(input())
+        arr.append(value)
+    return arr
+
+def TBC(arr):
+    total_sum = sum(arr)
+    num_elements = len(arr)
+    avg = total_sum / num_elements
+    return avg
+
+def trung_vi(arr, n):
+    sorted_arr = sorted(arr)
+    if n % 2 != 0:
+        median = sorted_arr[n // 2]
+        print("{:.6f}".format(median))
+    else:
+        median = (sorted_arr[n // 2 - 1] + sorted_arr[n // 2]) / 2
+        print("{:.6f}".format(median))
+
+n = int(input())
+mang = nhap_mang(n)
+kq = TBC(mang)
+
+print("{:.6f}".format(kq))
+trung_vi(mang, n)
