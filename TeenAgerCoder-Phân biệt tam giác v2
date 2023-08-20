@@ -1,0 +1,16 @@
+a,b,c=map(float,input().split())
+#Sắp sếp a,b,c tăng dần
+if a>b:
+    a,b=b,a
+if a>c:
+    a,c=c,a
+if b>c:
+    b,c=c,b
+#Phân loại tam giac
+zero=1e-9
+if abs(a-b)<zero:
+    print('Tam giac deu')
+elif abs(a-b)<zero or abs(b-c)<zero:
+              print('Tam giac can')
+else:
+              print('Tam giac thuong')
