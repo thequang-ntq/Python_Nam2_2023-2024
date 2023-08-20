@@ -1,0 +1,12 @@
+n=int(input())
+# dem so lan thoa man dieu kien
+dem=0
+if n%2!=0:
+    dem=dem +1
+if n>0 and n>=100 and n<=999:
+    dem=dem+1
+#xet dem =1
+if dem!=0:
+    print("Yes")
+else :
+    print("No")
