@@ -1,0 +1,11 @@
+import math
+while True:
+    try:
+        s=input()
+    except:
+            break
+    ans=1
+    for c in s:
+        if c.isupper():
+         ans+=1
+    print(ans)
