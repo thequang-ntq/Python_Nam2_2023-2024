@@ -1,0 +1,22 @@
+s = input().split()
+m = int(s[0])
+n = int(s[1])
+
+matrix = []
+
+for i in range(m):
+    arr = [int(x) for x in input().split()]
+    matrix.append(arr)
+tmp = []
+for i in range(m):
+    for j in range(n):
+        tmp.append(matrix[i][j])
+tmp.sort()
+k = 0
+for i in range(m):
+    result = []
+    for j in range(n):
+        result.append(tmp[k])
+        k += 1
+    [print(x, end=" ") for x in result]
+    print()
