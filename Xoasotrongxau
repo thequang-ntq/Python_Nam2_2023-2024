@@ -1,0 +1,11 @@
+s = input()
+
+result = ""
+
+for x in s:
+    if x.isdigit():
+        continue
+    else:
+        result += x
+
+print(result)
