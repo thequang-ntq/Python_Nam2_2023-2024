@@ -1,0 +1,12 @@
+def tim(n):
+    rong = []
+    for a in range(1, 201):
+        for b in range(1, 201):
+            if (a * b) == n * (a + b):
+                rong.append((a, b))
+    return rong
+
+n = int(input())
+kq = tim(n)
+for item in kq:
+    print(item[0], item[1])
