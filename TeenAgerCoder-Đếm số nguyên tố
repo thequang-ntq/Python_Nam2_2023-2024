@@ -1,0 +1,15 @@
+import math
+n = int(input())
+ans = 0
+a = list(map(int, input().split()))
+
+ans = 0
+for i in range(n):
+    if (a[i] >= 100 and a[i] <= 999):
+        ok = True
+        for j in range(2, int(math.sqrt(a[i])) + 1):
+            if a[i] % j == 0:
+                ok = False
+        if ok == True:
+            ans += 1
+print(ans)
