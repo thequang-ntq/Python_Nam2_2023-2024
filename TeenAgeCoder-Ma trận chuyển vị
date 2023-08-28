@@ -1,9 +1,10 @@
-s = input().split()
-m = int(s[0])
-n = int(s[1])
-a = [[int(x) for x in input().split()[:n]]for i in range(m)]
-b = [[a[i][j] for i in range(m)] for j in range(n)]
+m,n = map(int,input().split())
+matrix = []
+for i in range(m):
+    ls = list(map(int,input().split()))
+    matrix.append(ls)
+
 for i in range(n):
     for j in range(m):
-        print(b[i][j], end=' ')
+        print(matrix[j][i], sep = ' ', end = ' ')
     print()
