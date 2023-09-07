@@ -1,0 +1,58 @@
+class Node:
+    def __init__(self, data, name):
+        self.name = name
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def addFirst(self, data, name):
+        p = Node(data, name)
+        p.next = self.head
+        self.head = p
+
+    def addLast(self, data, name):
+        p = Node(data, name)
+        if self.head is None:
+            self.head = p
+        else:
+            t = self.head
+            while t.next is not None:
+                t = t.next
+            t.next = p
+
+    def display(self):
+        p = self.head
+        while p is not None:
+            print(p.name, p.data)
+            p = p.next
+
+if _name_ == "_main_":
+    linked_list = LinkedList()
+
+    while True:
+        line = input()
+        if line == 'display':
+            linked_list.display()
+        elif line == 'fin':
+            break
+        else:
+            try:
+                parts = line.split()
+                if len(parts) >= 4:
+                    command = parts[0]
+                    data = parts[-1]
+                    name = ' '.join(parts[1:-1])
+                    if command == 'insF':
+                        linked_list.addFirst(data, name)
+                    elif command == 'insL':
+                        linked_list.addLast(data, name)
+                    else:
+                        print("Invalid command.")
+                else:
+                    print("Invalid input.")
+            except ValueError:
+                print("Invalid input.")
