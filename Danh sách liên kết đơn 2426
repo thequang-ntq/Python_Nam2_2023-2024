@@ -1,0 +1,117 @@
+check = False
+
+
+class Node:
+    def __init__(self, num):
+        self.num = num
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def addFirst(self, num):
+        p = Node(num)
+        p.next = self.head
+        self.head = p
+
+    def addLast(self, num):
+        p = Node(num)
+        if self.head is None:
+            self.head = p
+        else:
+            t = self.head
+            while t.next is not None:
+                t = t.next
+            t.next = p
+
+    def average(self):
+        if self.head is not None:
+            p = self.head
+            sz = 1
+            if p.num is not None:
+                sum = int(p.num)
+                while p is not None:
+                    p = p.next
+                    if p is not None:
+                        sz += 1
+                        if p.num is not None:
+                            sum += int(p.num)
+                        else:
+                            break
+                    else:
+                        break
+                sum = sum / sz
+                return sum + 0.004
+            return 0.00
+        else:
+            return 0.00
+            
+        
+    def display(self):
+        p = self.head
+        while p is not None:
+            print(p.num)
+            p = p.next
+    def dele(self, pos, size):
+        if self.head is not None:
+            if pos <= 0 or pos > size:
+                return
+            if pos == 1:
+                check = True
+                p = self.head
+                self.head = p.next
+                del p
+                return
+            if pos == 2:
+                check = True
+                p = self.head
+                p.next = p.next.next
+                return
+            check = True
+            p = self.head
+            while pos > 2:
+                p = p.next
+                pos -= 1
+            if pos == size:
+                p.next = None
+            else:
+                p.next = p.next.next
+            return
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+    n = int(input())
+    lst = list(map(int,input().split()))
+    size = len(lst)
+    for i in range(len(lst)):
+        linked_list.addLast(lst[i])
+    while True:
+        line = input().strip()
+        if line == '0 0':
+            break
+        elif line =='display':
+            linked_list.display()
+        else:
+            try:
+                parts = line.split()
+                if len(parts) == 1:
+                    print('{:.2f}'.format(linked_list.average()))
+                elif len(parts) == 2:
+                    if parts[0] == 'i' or parts[0] == 'I':
+                        num = int(parts[1])
+                        size += 1
+                        linked_list.addLast(num)
+                    elif parts[0] == 'd':
+                        pos = int(parts[1])
+                        linked_list.dele(pos, size)
+                        if check:
+                            size -= 1
+                            check = False
+
+                        
+                else:
+                    print("Invalid input.")
+            except ValueError:
+                print("Invalid input.")
