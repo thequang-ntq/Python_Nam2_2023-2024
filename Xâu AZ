@@ -1,9 +1,15 @@
-st=input()
-l=len(st)
-i=0
-while(st[i]!='A'):
-    i=i+1
-j=l-1
-while(st[j]!='Z'):
-    j=j-1
-print(j-i+1)
+s = input().strip()
+cnt = 0
+pos = 0
+posA = 0
+for i in range(len(s)):
+    if s[i] == 'Z':
+        pos = i
+for i in range(len(s)):
+    if s[i] == 'A':
+        posA = i
+        break
+if pos > posA:
+    print(pos - posA + 1)
+else:
+    print(0)
