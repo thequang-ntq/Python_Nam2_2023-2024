@@ -1,0 +1,14 @@
+# try:
+n,x = map(int,input().split())
+R = list(map(int,input().split()))
+if x <= min(R):
+    print(1)
+elif x >= max(R):
+    print(n+1)
+else:
+    for i in range(len(R)):
+        if x < R[i]:
+            print(i+1)
+            break
+# except:
+    # pass
