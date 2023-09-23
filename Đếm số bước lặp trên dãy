@@ -1,0 +1,16 @@
+# try:
+n = int(input())
+R = list(map(int,input().split()))
+x = 100000
+for i in range(len(R)):
+    bi = bin(R[i])[2:]
+    le = len(bi) - 1
+    now = len(bi) - 1
+    while(now>=0):
+        if int(bi[now]) == 1:
+            x = min(x, int(le) - int(now))
+            break
+        now -= 1
+print(x)
+# except:
+    # pass
