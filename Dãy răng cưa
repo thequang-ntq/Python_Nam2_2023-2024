@@ -1,0 +1,37 @@
+import math
+# try:
+n = int(input())
+h = list(map(int,input().split()))
+c = True
+x = -1
+for i in range(n-1):
+    if x == -1:
+        if h[i] < h[i+1]:
+            x = 0
+        elif h[i] > h[i+1]:
+            x = 1
+        else:
+            c= False
+            break
+    else:
+        if h[i] < h[i+1]:
+            if x == 0:
+                c = False
+                break
+            else:
+                x = 0
+        elif h[i] > h[i+1]:
+            if x == 1:
+                c= False
+                break
+            else:
+                x = 1
+        else:
+            c = False
+            break
+if c:
+    print("Yes")
+else:
+    print('No')
+# except:
+#     pass
