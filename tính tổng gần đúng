@@ -1,0 +1,17 @@
+import math
+# try:
+def giaithua(n):
+    tich = 1
+    for i in range(2,n+1):
+        tich *= i
+    return tich
+
+x = float(input())
+s = 1
+i = 1
+while(x**i / (giaithua(i)) >= 1e-9):
+    s += ((x**i) / (giaithua(i)))
+    i+=1
+print("{:.4f}".format(s))
+# except:
+#     pass
