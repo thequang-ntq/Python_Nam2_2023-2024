@@ -1,0 +1,9 @@
+n = int(input())
+r = list(map(int,input().split()))
+dic = {a : 0 for a in r}
+for i in r:
+    dic[i] += 1
+for i in dic:
+    if dic[i] % 2 != 0:
+        print(i)
+        break
