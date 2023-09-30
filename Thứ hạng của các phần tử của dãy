@@ -1,0 +1,16 @@
+n = int(input())
+r = list(map(int,input().split()))
+srt = r.copy()
+dic = {a : 0 for a in r}
+hang = {a : 0 for a in r}
+for i in r:
+    dic[i] += 1
+srt.sort(reverse=True)
+thuTu = 1
+for i in range(len(srt)):
+    if(hang[srt[i]] == 0):
+        hang[srt[i]] = thuTu
+        thuTu += dic[srt[i]]
+
+for i in range(len(r)):
+    print(hang[r[i]])
