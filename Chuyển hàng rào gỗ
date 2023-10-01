@@ -1,0 +1,19 @@
+from math import *
+
+# try:
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    A =list(map(int,input().split()))
+    B = list(map(int,input().split()))
+    A.sort()
+    B.sort()
+    c = True
+    for i in range(n):
+        if A[i] > B[i]:
+            c = False
+            break
+    if c: print('Yes')
+    else: print('No')
+# except:
+#     print('')
