@@ -1,0 +1,28 @@
+from math import *
+par = [i for i in range(1000001)]
+sz = [1 for i in range(1000001)]
+def find(v):
+    if v == par[v]:
+        return v
+    else:
+        return find(par[v])
+
+def union(a,b):
+    a = find(a)
+    b = find(b)
+    if a != b:
+        if sz[a] < sz[b]:
+            a,b = b,a
+        par[b] = a
+        sz[a] += sz[b]
+
+try:
+    n = int(input())
+    for _ in range(n):
+        x,y,z = map(int,input().split())
+        if z == 1:
+            union(x,y)
+        else:
+            print(int(find(x) == find(y)))
+except:
+    pass
