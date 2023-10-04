@@ -1,0 +1,21 @@
+from math import *
+
+# try
+n,s,r = map(int,input().split())
+hong = list(map(int,input().split()))
+du = list(map(int,input().split()))
+hong.sort()
+du.sort()
+for i in du:
+    f = False
+    if i-1 in hong:
+        hong.remove(i-1)
+        f = True
+    if(len(hong) == 0): break
+    if i+1 in hong and f == False:
+        hong.remove(i+1)
+    if(len(hong) == 0): break
+print(len(hong))
+    
+# except:
+#     pass
