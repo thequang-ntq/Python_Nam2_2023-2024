@@ -1,0 +1,49 @@
+import sys
+sys.setrecursionlimit(10**5)
+
+from math import *
+
+adj = []
+st = []
+deg = {a:0 for a in range(1002)}
+vis = []
+
+for i in range(1002):
+    adj.append([])
+    vis.append(False)
+
+def dfs(u):
+    vis[u] = True
+    for v in adj[u]:
+        if vis[v] == False:
+            dfs(v)
+
+def lienThong():
+    check = 0
+    for i in range(1,n+1):
+        if vis[i] == False:
+            check += 1
+            dfs(i)
+    if check == 1:
+        return True
+    else:
+        return False
+
+n,m = map(int,input().split())
+for i in range(m):
+    x,y = map(int,input().split())
+    adj[x].append(y)
+    adj[y].append(x)
+    deg[x]+=1
+    deg[y]+=1
+u = True
+for i in range(1,n+1):
+    if deg[i] % 2 != 0:
+        u = False
+        break
+if u and lienThong():
+    print('Yes')
+else:
+    print('No')
+        
+
