@@ -1,0 +1,19 @@
+from math import *
+a,b=map(int,input().split())
+A=list(map(int,input().split()))
+A.sort()
+def bin(a,l,r,x):
+    while l<=r:
+        m= l+(r-l)//2
+        if a[m]==x:
+            return 1
+        elif a[m]<x:
+            l=m+1
+        else:
+            r=m-1
+    return 0
+dem=0
+for i in range (a):
+    if bin(A,i,len(A)-1,b-A[i])==1 and A[i]+A[i]!=b:
+        dem+=1
+print(dem)
