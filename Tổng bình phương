@@ -1,0 +1,17 @@
+from math import *
+
+# try
+a,b = map(float,input().split())
+if a >= b:
+    a,b = b,a
+n = int(ceil(a))
+m = int(floor(b))
+if n > m:
+    print(0)
+else:
+    t = m * (m+1) * (2*m+1) // 6
+    n-= 1
+    tt = n * (n+1) * (2*n+1) // 6
+    print((t-tt) % 1000000007)
+# except:
+#     pass
