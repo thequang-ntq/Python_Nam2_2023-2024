@@ -1,0 +1,37 @@
+import sys
+sys.setrecursionlimit(10**5)
+
+from math import *
+
+vis = []
+dx = [-1,0,0,1]
+dy = [0,-1,1,0]
+for i in range(109):
+    vis.append([])
+for i in range(102):
+    for j in range(102):
+        vis[i].append(False)
+def dfs(i,j,n,m,l):
+    vis[i][j] = True
+    for k in range(4):
+        u = int(i + dx[k])
+        v = int(j + dy[k])
+        if u >= 0 and u <= n-1 and v >= 0 and v <= m-1 and l[u][v] == '*' and vis[u][v] == False:
+            dfs(u,v,n,m,l)
+
+n,m = map(int,input().split())
+l = []
+for i in range(n):
+    l.append([])
+for i in range(n):
+    s = input().strip()
+    for char in s:
+        l[i].append(char)
+dem = 0
+for i in range(0,n):
+    for j in range(0,m):
+        if l[i][j] == '*' and vis[i][j] == False:
+            # print(i,j)
+            dfs(i,j,n,m,l)
+            dem += 1
+print(dem)
