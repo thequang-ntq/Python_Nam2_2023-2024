@@ -1,0 +1,12 @@
+from math import * 
+n = int(input()) 
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = list(map(int, input().split()))
+dem = 0
+dic = {a : 0 for a in range(1,n+1)}
+for i in c:
+    dic[b[i-1]] += 1
+for i in range(n):
+    dem += dic[a[i]]
+print(dem)
