@@ -1,0 +1,23 @@
+from math import * 
+n = int(input()) 
+l = []
+for i in range(90):
+    a = 1 / sqrt(5)
+    b = ( ( (1 + sqrt(5) ) / 2 ) ** i )
+    c = ( ( (1 - sqrt(5) ) / 2 ) ** i)
+    d = int(a * (b-c))
+    l.append(d)
+for i in range(n):
+    x = int(input())
+    check = False
+    for i in range(85):
+        for j in range(85):
+            if l[i] * l[j] == x:
+                check = True
+                break
+        if check == True:
+            break
+    if check == True:
+        print('Yes')
+    if check == False:
+        print('No')
