@@ -1,0 +1,23 @@
+A=[[1,1],[1,0]]
+def nhan(A,B):
+    C= [[0 for i in range (2)] for i in range (2) ]
+    for i in range (2):
+        for j in range (2):
+            for k in range (2):
+                C[i][j]+=(A[i][k]* B[k][j]) %(10**9+7)
+    return C
+def binpow(A,n):
+    if n<=1:
+         return A
+    C= binpow(A,n//2)
+    C= nhan(C,C)
+    if (n%2==1):
+        return nhan(C,A)
+    else:
+        return C
+n=int(input())
+if (n==0):
+    print(0)
+
+else:
+    print(binpow(A,n)[0][1])
