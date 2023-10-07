@@ -1,0 +1,8 @@
+import sys
+sys.setrecursionlimit(10**5)
+
+from math import *
+
+n,k = map(int,input().split())
+r = list(map(int,input().split()))
+print(comb(n-1+k,k), k * max(r))
