@@ -1,0 +1,16 @@
+from collections import Counter
+from itertools import accumulate
+
+n,k = map(int,input().split())
+R = list(map(int,input().split()))
+
+#soDu la 1 dictionary voi key la gia tri phan du, value la so phan tu ma modulo k du ra gia tri key
+soDu = Counter(map(lambda x: x % k, accumulate(R))) 
+kq = 0
+for i in soDu: #i la tap hop cac key trong tu dien soDu
+    # to hop cua cac tien to co cung so du khi chia cho k
+    # C(n,k)
+    kq += soDu[i] * (soDu[i]-1) // 2
+# cuoi cung cong them cho so phan tu co so du 0 khi chia k
+kq += soDu[0]
+print(kq)
