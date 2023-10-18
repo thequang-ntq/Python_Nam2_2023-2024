@@ -1,0 +1,10 @@
+from math import *
+t = int(input())
+for _ in range(t):
+    l,r = map(int,input().split())
+    if l > r:
+        l,r = r,l
+    l -= 1
+    x = (l // 4) - (l // 100) + (l // 400)
+    y = (r // 4) - (r // 100) + (r // 400)
+    print(abs(y-x))
