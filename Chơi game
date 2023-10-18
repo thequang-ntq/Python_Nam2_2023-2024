@@ -1,0 +1,20 @@
+n=int(input())
+A=[0]*n
+for i in range (n):
+    A[i]=list(map(int,input().split()))
+A.sort(key=lambda x:-x[0])
+
+B=sorted(A,key=lambda x:-x[1])
+
+if A[0] is not B[0]:
+    print(A[0][0] + B[0][1])
+else:
+    i =0
+    while B[i] is A[0]:
+        i+=1
+    x=A[0][0] + B[i][1]
+    i=0
+    while A[i] is B[0]:
+        i+=1
+    y=A[i][0] + B[0][1]
+    print(max(x,y))
