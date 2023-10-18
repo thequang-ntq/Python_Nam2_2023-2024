@@ -1,0 +1,9 @@
+from math import *
+n = float(input())
+p = floor(sqrt(n * 2 + 1))
+# print(p)
+for i in range(2, p+1):
+    tmp = int( n - ( i * (i + 1) // 2 ) )
+    if tmp % i == 0:
+        print(tmp // i + 1, tmp // i + i)
+        
