@@ -1,18 +1,13 @@
-a, b, h = map(int, input().split())
-
-left = 1
-right = 10**9
-
-while left < right:
-    mid = (left + right) // 2
-    if (a - h) <= mid * (b - h):
-        right = mid
-    else:
-        left = mid + 1
-
-if (a - h) <= 0:
+from math import*
+h,a,b=map(int,input().split())
+if a>=h:
     print(1)
-elif left == 10**9:
+elif a==b:
     print(-1)
+elif b<a<h:
+    if ((h-b)%(a-b)==0):
+        print((h-b)//(a-b))
+    else:
+        print((h-b)//(a-b)+1)
 else:
-    print(left)
+    print(-1)
