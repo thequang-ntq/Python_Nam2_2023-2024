@@ -3,12 +3,16 @@ def solve(l, n):
         return n
 
     ans = 2
-    dp = [{} for _ in range(n)]
+    dp = [{} for _ in range(n)] #1 phan tu la 1 dictionary
+    # print(type(dp[0]))
+    # Moi phan tu dp se la 1 tu dien chua cac do dai khoang cach d cua cap so cong
+    # tinh toi phan tu thu i, key la khoang cach, value la so phan tu 
     for i in range(n):
         for j in range(i):
             diff = l[i] - l[j]
             dp[i][diff] = dp[j].get(diff, 1) + 1
             ans = max(ans, dp[i][diff])
+        # print(i, ":", dp)
 
     return ans
 n = int(input())
