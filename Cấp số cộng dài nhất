@@ -1,0 +1,20 @@
+def solve(l, n):
+    if n <= 2:
+        return n
+
+    ans = 2
+    dp = [{} for _ in range(n)]
+    for i in range(n):
+        for j in range(i):
+            diff = l[i] - l[j]
+            dp[i][diff] = dp[j].get(diff, 1) + 1
+            ans = max(ans, dp[i][diff])
+
+    return ans
+n = int(input())
+lst = list(map(int,input().split()))
+kq = 1
+for i in range(n):
+    x = lst.count(lst[i])
+    kq = max(kq,x)
+print(max(solve(lst,n), kq))
