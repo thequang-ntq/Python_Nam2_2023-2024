@@ -1,0 +1,14 @@
+from math import *
+t = int(input())
+for _ in range(t):
+    s = input().strip()
+    dic = {a:0 for a in s}
+    for char in s:
+        dic[char] += 1
+    cnt = 1
+    for x in dic.values():
+        if x % 2 == 0:
+            cnt += x
+        else:
+            cnt += (x-1)
+    print(min(cnt,len(s)))
