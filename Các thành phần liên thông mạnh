@@ -1,0 +1,43 @@
+from math import *
+adj = [[] for i in range(100000)]
+r_adj = [[] for i in range(100000)]
+vis = [False for i in range(100000)]
+st = []
+def dfs1(u):
+    vis[u] = True
+    for v in adj[u]:
+        if not vis[v]:
+            dfs1(v)
+    st.append(u)
+
+def dfs2(u):
+    vis[u] = True
+    for v in r_adj[u]:
+        if not vis[v]:
+            dfs2(v)
+
+def component(n):
+    for i in range(1,n+1):
+        vis[i] = False
+    cnt = 0
+    for i in range(1,n+1):
+        if not vis[i]:
+            dfs1(i)
+    
+    for i in range(1,n+1):
+        vis[i] = False
+           
+    while(st):
+        u = st.pop()
+        if(not vis[u]):
+            dfs2(u)
+            cnt+=1
+    return cnt
+
+n,m = map(int,input().split())
+
+for _ in range(m):
+    x,y = map(int,input().split())
+    adj[x].append(y)
+    r_adj[y].append(x)
+print(component(n))
