@@ -1,0 +1,64 @@
+from math import *
+# Kruskal - DSU   
+par = [i for i in range(200005)]
+sz = [1 for i in range(200005)]
+lst = []
+
+def Find(v):
+    if v == par[v]:
+        return v
+    return Find(par[v])
+
+def Union(a,b):
+    a = Find(a)
+    b = Find(b)
+    if a == b:
+        return False
+    if sz[a] < sz[b]:
+        a,b = b,a
+    par[b] = a
+    sz[a] += sz[b]
+    return True
+
+def kruskal(n,m):
+
+    for i in range(1,n+1):
+        par[i] = i
+        sz[i] = 1
+    # print(lst)
+    for i in range(m):
+        d = lst[i][2]
+        canh = lst[i]
+        aa = Find(lst[i][0])
+        bb = Find(lst[i][1])
+        if(aa != bb):
+            if(sz[aa] < sz[bb]):
+                aa,bb = bb,aa
+            par[bb] = aa
+            sz[aa] += sz[bb]
+        # l = [lst[i]]
+        lst_sorted = lst.copy()
+        lst_sorted.sort(key = lambda x: x[2])
+        dem = 1
+        for j in range(m):
+            if dem == n-1:
+                break
+            if lst_sorted[j] != canh:
+                e = lst_sorted[j]
+                if Union(e[0],e[1]):
+                    dem += 1
+                    # l.append(e)
+                    d += e[2]
+        # print(l)
+        print(d)
+        for j in range(1,n+1):
+            par[j] = j
+            sz[j] = 1
+    
+
+n,m = map(int,input().split())
+
+for _ in range(m):
+    x,y,w = map(int,input().split())
+    lst.append([x,y,w])
+kruskal(n,m)
