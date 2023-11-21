@@ -1,0 +1,51 @@
+from math import *
+adj = [[] for i in range(82000)]
+vis = [False for i in range(205)]
+edge = []
+def dijkstra(n,s,t):
+    d = [10**10 for i in range(n+5)]
+    d[s] = 0
+    q = []
+    # q la priority_queue uu tien lay canh co do dai nho nhat d[v] -> min
+    q.append([0,s])
+    while(q):
+        q.sort(reverse=True, key= lambda x: x[0])
+        x = q.pop()
+        u = x[1]
+        kc = x[0]
+        vis[u] = True
+        if kc > d[u]:
+            continue
+        for it in adj[u]:
+            v = it[0]
+            w = it[1]
+            vis[v] = True
+            if d[v] > d[u] + w:
+                d[v] = d[u] + w
+                q.append([d[v],v])
+    return d[t]
+            
+
+n,m = map(int,input().split())
+k = m 
+d = 0
+for _ in range(m):
+    x,y,w = map(int,input().split())
+    edge.append([x,y,w])
+    d += w
+for i in range(len(edge)):
+    edge_cp = edge.copy()
+    del edge_cp[i]
+    adj.clear()
+    for j in range(m+2):
+        adj.append([])
+    for j in range(len(edge_cp)):
+        adj[edge_cp[j][0]].append([edge_cp[j][1], edge_cp[j][2]])
+        adj[edge_cp[j][1]].append([edge_cp[j][0], edge_cp[j][2]])
+    for j in range(n+5):
+        vis[j] = False
+    weight_i = dijkstra(n,edge[i][0], edge[i][1])
+    if edge[i][2] >= weight_i:
+        k -= 1
+        d -= edge[i][2]
+print(k,d)
